@@ -87,9 +87,10 @@ def stack_list():
 # Delete a stack
 @ rpn_api.route('/rpn/stack/<stack_id>', methods=["DELETE"])
 def delete_stack(stack_id):
-    print(stack_id)
 
     stack = Stack.query.get(stack_id)
+    db.session.remove(stack)
+    db.session.commit()
 
     return stack_schema.jsonify(stack)
 
