@@ -1,0 +1,8 @@
+#stack-displayer {
+  width: 20vw;
+  height: 70vh;
+}
+
+#stack-list {
+  overflow-y: scroll;
+}

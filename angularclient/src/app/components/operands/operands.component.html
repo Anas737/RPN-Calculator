@@ -1,0 +1,13 @@
+<div class="ml-2">
+  <ng-container *ngIf="operands">
+    <button
+      *ngFor="let operand of operands"
+      type="button"
+      name="{{ operand }}"
+      class="operand btn btn-sm btn-dark d-block mx-1 mt-2 text-uppercase"
+      (click)="onApply($event)"
+    >
+      {{ operand }}
+    </button>
+  </ng-container>
+</div>

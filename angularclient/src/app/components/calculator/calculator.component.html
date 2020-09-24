@@ -1,0 +1,44 @@
+<div id="calculator" class="card">
+  <div class="card-header h3 text-center text-uppercase bg-dark text-white">
+    {{ title }}
+  </div>
+  <div class="card-body bg-info d-flex flex-column h-100">
+    <div class="d-flex">
+      <div class="flex-grow-1">
+        <input
+          type="text"
+          class="input-group"
+          [value]="inputValue"
+          (change)="onChange($event)"
+        />
+      </div>
+      <div class="ml-2">
+        <button
+          id="enter-btn"
+          type="button"
+          class="btn btn-sm btn-success d-block mx-1"
+          (click)="onPush()"
+        >
+          Enter
+        </button>
+      </div>
+    </div>
+    <div class="flex-grow-1 d-flex">
+      <div id="stack" class="flex-grow-1 mt-2 bg-dark">
+        <ng-container *ngIf="selectedStack">
+          <p
+            *ngFor="let data of selectedStack.values; let i = index"
+            class="ml-2 text-white"
+          >
+            {{ i }} -> {{ data.value }}
+          </p>
+        </ng-container>
+      </div>
+      <app-operands
+        selectedStack="selectedStack"
+        [operands]="operands"
+        (applyOperand)="onApply($event)"
+      ></app-operands>
+    </div>
+  </div>
+</div>

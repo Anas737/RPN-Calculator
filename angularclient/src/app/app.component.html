@@ -1,0 +1,14 @@
+<div id="app" class="d-flex justify-content-center align-items-center">
+  <!--<Calculator stack={state.stack} operands={operands} dispatch={dispatch} />-->
+  <app-calculator
+    [selectedStack]="selectedStack"
+    (applyOperand)="onApply($event)"
+    (pushValue)="onPush($event)"
+  ></app-calculator>
+  <app-stackdisplayer
+    [stacks]="stacks"
+    (createStack)="onCreate()"
+    (selectStack)="onSelect($event)"
+    (deleteStack)="onDelete($event)"
+  ></app-stackdisplayer>
+</div>

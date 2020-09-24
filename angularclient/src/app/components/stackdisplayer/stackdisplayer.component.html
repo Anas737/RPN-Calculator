@@ -1,0 +1,20 @@
+<div id="stack-displayer" class="card ml-5">
+  <div class="card-header h3 text-center text-uppercase bg-info text-white">
+    {{ title }}
+  </div>
+  <div id="stack-list" class="card-body bg-dark d-flex flex-column h-100">
+    <button
+      type="button"
+      class="btn btn-sm btn-success w-100 mb-2"
+      (click)="onCreate()"
+    >
+      +
+    </button>
+    <app-stack
+      *ngFor="let stack of stacks"
+      [stack]="stack"
+      (deleteStack)="onDelete($event)"
+      (selectStack)="onSelect($event)"
+    ></app-stack>
+  </div>
+</div>
